@@ -3,7 +3,7 @@ require("dotenv").config();
 const stateProject = process.env.STATE;
 
 export default {
-  port: 8000,
+  port: 5000,
   accesTokenExpiresIn: 15,
   origin: "http://localhost:3000",
   mongoUrl: process.env.MONGO_URL,

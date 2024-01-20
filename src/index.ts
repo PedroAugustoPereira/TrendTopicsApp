@@ -4,6 +4,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import express, { NextFunction, Request, Response } from "express";
 
+import categoryRouter from "./routes/CategoryRoute";
 import connectDB from "./utils/connectDB";
 
 const app = express();
@@ -19,6 +20,8 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
+
+app.use("/api", categoryRouter);
 
 // Rotas desconhecidas
 app.all("*", (req: Request, res: Response, next: NextFunction) => {
