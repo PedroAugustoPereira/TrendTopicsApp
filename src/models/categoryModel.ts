@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 export interface CategoryDocument {
   name: string;
   slug: string;
-  posts?: [];
+  posts?: mongoose.Types.ObjectId[];
 }
 
 export const categorySchema = new mongoose.Schema<CategoryDocument>(
@@ -32,7 +32,7 @@ export const categorySchema = new mongoose.Schema<CategoryDocument>(
   }
 );
 
-const Categorys = mongoose.model<CategoryDocument>("Categorys", categorySchema);
+const Categorys = mongoose.model<CategoryDocument>("Category", categorySchema);
 export type CategoryType = typeof categorySchema;
 
 export default Categorys;

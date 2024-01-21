@@ -38,6 +38,23 @@ const categoryController = {
       });
     }
   },
+
+  getCategory: async (req: Request, res: Response) => {
+    const id = req.body;
+
+    try {
+      const category = await categoryService.getCategoryWithPosts(id);
+      res.status(200).json({
+        status: true,
+        data: category,
+      });
+    } catch (err: any) {
+      res.status(400).json({
+        status: false,
+        error: err.message,
+      });
+    }
+  },
 };
 
 export default categoryController;

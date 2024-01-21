@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import express, { NextFunction, Request, Response } from "express";
 
 import categoryRouter from "./routes/CategoryRoute";
+import postRouter from "./routes/PostRoute";
 import connectDB from "./utils/connectDB";
 
 const app = express();
@@ -22,6 +23,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.use("/api", categoryRouter);
+app.use("/api", postRouter);
 
 // Rotas desconhecidas
 app.all("*", (req: Request, res: Response, next: NextFunction) => {
